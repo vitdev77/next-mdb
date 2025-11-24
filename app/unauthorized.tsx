@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { AUTH_DIR } from "@/lib/constants";
 
 export default function UnauthorizedPage() {
   const pathname = usePathname();
@@ -17,9 +16,7 @@ export default function UnauthorizedPage() {
         </div>
         <div>
           <Button asChild>
-            <Link href={`${AUTH_DIR}/sign-in?redirect=${pathname}`}>
-              Sign in
-            </Link>
+            <Link href={`/auth/sign-in?redirect=${pathname}`}>Sign in</Link>
           </Button>
         </div>
       </div>

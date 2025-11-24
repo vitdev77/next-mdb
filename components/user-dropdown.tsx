@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth-client";
 import { User } from "@/lib/auth";
-import { AUTH_DIR } from "@/lib/constants";
 import { toast } from "sonner";
 
 interface UserDropdownProps {
@@ -75,7 +74,7 @@ function SignOutItem() {
       toast.error(error.message || "Something went wrong");
     } else {
       toast.success("Signed out successfully");
-      router.push(AUTH_DIR + "/sign-in");
+      router.push("/auth/sign-in");
     }
   }
 
