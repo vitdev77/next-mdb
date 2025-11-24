@@ -1,10 +1,10 @@
 "use client";
 
-import { LogOutIcon, ShieldIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { unauthorized, useRouter } from "next/navigation";
-import { Button } from "./ui/button";
+import { LogOutIcon, ShieldIcon, UserIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,11 +12,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth-client";
-import { toast } from "sonner";
 import { User } from "@/lib/auth";
 import { AUTH_DIR } from "@/lib/constants";
+import { toast } from "sonner";
 
 interface UserDropdownProps {
   user: User;

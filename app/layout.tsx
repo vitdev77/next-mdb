@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Roboto_Flex } from "next/font/google";
+import { Roboto_Flex } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const robotoFlex = Roboto_Flex({
   variable: "--font-roboto-flex",

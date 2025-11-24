@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container } from "./container";
+import { Container } from "@/components/container";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -10,7 +10,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
   return (
     <footer className={cn("border-t border-dashed", className)}>
       <Container>
-        <div className="py-4 w-full text-center">
+        <div className="w-full py-4 text-center">
           <p className="text-muted-foreground text-xs">
             &copy; {new Date().getFullYear()} Next MDB. (demo)
           </p>

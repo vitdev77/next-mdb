@@ -1,7 +1,7 @@
 import * as React from "react";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export function PasswordInput({
   className,

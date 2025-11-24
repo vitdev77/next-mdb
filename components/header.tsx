@@ -1,103 +1,45 @@
 "use client";
 
 import * as React from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
-import { Container } from "./container";
-import Logo from "./logo";
-import { ThemeToggle } from "./theme-toggle";
-import { LayoutToggle } from "./layout-toggle";
-import { Separator } from "./ui/separator";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Container } from "@/components/container";
+import Logo from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { LayoutToggle } from "@/components/layout-toggle";
 import { cn } from "@/lib/utils";
+import { AUTH_DIR } from "@/lib/constants";
 
 export function Header({ className }: { className?: string }) {
-  const pathname = usePathname();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
-  React.useEffect(() => {
-    // Check authentication status
-    const checkAuth = () => {
-      const mockAuthStatus = localStorage.getItem("isAuthenticated") === "true";
-      setIsAuthenticated(mockAuthStatus);
-    };
-
-    checkAuth();
-
-    // Listen for storage changes (when user signs in/out in another tab)
-    window.addEventListener("storage", checkAuth);
-
-    return () => {
-      window.removeEventListener("storage", checkAuth);
-    };
-  }, []);
-
-  const handleSignOut = () => {
-    localStorage.removeItem("isAuthenticated");
-    setIsAuthenticated(false);
-    alert("You have been signed out!");
-  };
-
-  const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/auth", label: "Auth" },
-  ];
-
   return (
     <header
       className={cn(
-        "backdrop-blur-sm bg-background/60 border-b border-dashed sticky top-0 z-50 w-full",
-        className
+        "bg-background/60 sticky top-0 z-50 w-full border-b border-dashed backdrop-blur-sm",
+        className,
       )}
     >
       <Container>
-        <div className="flex flex-col md:flex-row items-center justify-between py-3.5 gap-4 w-full">
-          <div className="w-full flex">
+        <div className="flex w-full flex-col items-center justify-between gap-4 py-3.5 md:flex-row">
+          <div className="flex w-full">
             <Logo />
-            <div className="ml-auto sm:flex items-center gap-2 sm:flex-1 sm:justify-end">
-              <div className="flex items-center space-x-2 ml-auto mr-4 sm:m-0">
-                {isAuthenticated ? (
-                  <Button onClick={handleSignOut} variant={"destructive"}>
-                    Sign Out
-                  </Button>
-                ) : (
-                  <Button
-                    variant={"outline"}
-                    asChild
-                    className="sm:flex hidden"
-                  >
-                    <Link href={"/auth/sign-in"}>Sign In</Link>
-                  </Button>
-                )}
+            <div className="ml-auto items-center gap-2 sm:flex sm:flex-1 sm:justify-end">
+              <div className="mr-4 ml-auto flex items-center space-x-2 sm:m-0">
+                <Button variant={"outline"} asChild className="hidden sm:flex">
+                  <Link href={AUTH_DIR + "/sign-in"}>Sign In</Link>
+                </Button>
               </div>
               <Separator
                 orientation="vertical"
-                className="data-[orientation=vertical]:h-4 3xl:flex hidden ml-2"
+                className="3xl:flex ml-2 hidden data-[orientation=vertical]:h-4"
               />
               <LayoutToggle className="3xl:flex hidden" />
               <Separator
                 orientation="vertical"
-                className="data-[orientation=vertical]:h-4 3xl:flex hidden"
+                className="3xl:flex hidden data-[orientation=vertical]:h-4"
               />
               <ThemeToggle />
             </div>
-          </div>
-          <div className="grid grid-cols-1 gap-2 w-full sm:hidden">
-            {navItems.map((item) => (
-              <Button
-                variant={"secondary"}
-                className={cn(
-                  pathname === item.href &&
-                    buttonVariants({ variant: "default", size: "lg" })
-                )}
-                size={"lg"}
-                key={item.label}
-                asChild
-              >
-                <Link href={item.href}>{item.label}</Link>
-              </Button>
-            ))}
           </div>
         </div>
       </Container>

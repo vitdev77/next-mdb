@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { AUTH_DIR } from "@/lib/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { AUTH_DIR } from "@/lib/constants";
 
 export default function UnauthorizedPage() {
   const pathname = usePathname();

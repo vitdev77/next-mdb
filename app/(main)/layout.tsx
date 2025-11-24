@@ -1,7 +1,7 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { LayoutProvider } from "@/hooks/use-layout";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Main Layout",
@@ -17,7 +17,7 @@ export default function MainLayout({
     <LayoutProvider>
       <div className="bg-background relative z-10 flex min-h-svh flex-col">
         <Header />
-        <main className="flex flex-1 justify-center flex-col">{children}</main>
+        <main className="flex flex-1 flex-col justify-center">{children}</main>
         <Footer />
       </div>
     </LayoutProvider>

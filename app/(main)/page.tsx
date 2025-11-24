@@ -3,6 +3,7 @@ import { Container } from "@/components/container";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AUTH_DIR } from "@/lib/constants";
 
 interface Props {
   className?: string;
@@ -26,19 +27,19 @@ const HomePage: React.FC<Props> = ({ className }) => {
 
   return (
     <div>
-      <Container className="min-h-[calc(100vh-266px)] md:min-h-[calc(100vh-114px)] items-center">
-        <div className="flex flex-col gap-2 lg:gap-4 w-full my-10">
-          <h1 className="text-primary leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl mx-auto text-center">
+      <Container className="min-h-[calc(100vh-266px)] items-center md:min-h-[calc(100vh-114px)]">
+        <div className="my-10 flex w-full flex-col gap-2 lg:gap-4">
+          <h1 className="text-primary leading-tighter mx-auto max-w-4xl text-center text-4xl font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-semibold xl:text-5xl xl:tracking-tighter">
             Welcome to Next MDB.
           </h1>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-center text-base text-balance sm:text-lg">
+          <p className="text-muted-foreground mx-auto max-w-3xl text-center text-base text-balance sm:text-lg">
             A comprehensive authentication demo showcasing various login methods
             including email / password, GitHub and Google authentication.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mt-6">
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
             <Button size={"lg"} className="w-full sm:w-auto" asChild>
-              <Link href="/auth">Get Started</Link>
+              <Link href={AUTH_DIR + "/sign-in"}>Get Started</Link>
             </Button>
             <Button
               variant={"outline"}
@@ -50,7 +51,7 @@ const HomePage: React.FC<Props> = ({ className }) => {
             </Button>
           </div>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-7xl md:mx-auto">
+          <div className="mt-12 grid max-w-7xl gap-6 md:mx-auto md:grid-cols-3">
             {cardItems.map((cardItem, key) => (
               <Card key={key} className="gap-0">
                 <CardHeader>

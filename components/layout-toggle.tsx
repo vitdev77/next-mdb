@@ -1,9 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { useLayout } from "@/hooks/use-layout";
-import { Button } from "@/components/ui/button";
 import { GalleryHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLayout } from "@/hooks/use-layout";
 
 interface Props {
   className?: string;

@@ -48,12 +48,12 @@ export type Brand = Prisma.BrandModel
  */
 export type Series = Prisma.SeriesModel
 /**
- * Model Model
+ * Model Product
  * 
  */
-export type Model = Prisma.ModelModel
+export type Product = Prisma.ProductModel
 /**
- * Model ModelColor
+ * Model ProductColor
  * 
  */
-export type ModelColor = Prisma.ModelColorModel
+export type ProductColor = Prisma.ProductColorModel

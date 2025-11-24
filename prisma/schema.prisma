@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
@@ -111,12 +105,12 @@ model Series {
   brandId Int
   brand   Brand @relation(fields: [brandId], references: [id])
 
-  models Model[]
+  products Product[]
 
   @@map("series")
 }
 
-model Model {
+model Product {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatadAt DateTime @updatedAt
@@ -124,22 +118,25 @@ model Model {
   name     String
   imageUrl String?
 
-  modelColorId Int
-  modelColor   ModelColor @relation(fields: [modelColorId], references: [id])
-  seriesId     Int
-  series       Series     @relation(fields: [seriesId], references: [id])
+  seriesId       Int
+  series         Series @relation(fields: [seriesId], references: [id])
+  // TODO: ????????
+  // productColorId Int
+  // productColor   ProductColor @relation(fields: [productColorId], references: [id])
+  productColorId Int
 
-  @@map("models")
+  @@map("products")
 }
 
-model ModelColor {
+model ProductColor {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatadAt DateTime @updatedAt
 
   name String
 
-  models Model[]
+  // TODO: ????????
+  // products Product[]
 
-  @@map("model_colors")
+  @@map("product_colors")
 }
