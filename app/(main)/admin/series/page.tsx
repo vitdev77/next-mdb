@@ -33,25 +33,36 @@ export default async function SeriesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {series.map((seriesItem) => (
-                <TableRow key={seriesItem.id}>
-                  <TableCell>{seriesItem.id}</TableCell>
-                  <TableCell className="font-medium">
-                    {seriesItem.name}
-                  </TableCell>
-                  <TableCell>{seriesItem.brandId}</TableCell>
-                  <TableCell>
-                    <div className="flex flex-row justify-end gap-2">
-                      <Button size={"sm"}>
-                        <PenIcon /> Edit
-                      </Button>
-                      <Button variant={"destructive"} size={"sm"}>
-                        <Trash2 /> Delete
-                      </Button>
-                    </div>
+              {series.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={4}
+                    className="text-muted-foreground text-center"
+                  >
+                    No series found
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                series.map((seriesItem) => (
+                  <TableRow key={seriesItem.id}>
+                    <TableCell>{seriesItem.id}</TableCell>
+                    <TableCell className="font-medium">
+                      {seriesItem.name}
+                    </TableCell>
+                    <TableCell>{seriesItem.brandId}</TableCell>
+                    <TableCell>
+                      <div className="flex flex-row justify-end gap-2">
+                        <Button size={"sm"}>
+                          <PenIcon /> Edit
+                        </Button>
+                        <Button variant={"destructive"} size={"sm"}>
+                          <Trash2 /> Delete
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>

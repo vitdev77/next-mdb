@@ -79,8 +79,6 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const UserScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   name: 'name',
   email: 'email',
   emailVerified: 'emailVerified',
@@ -88,7 +86,9 @@ export const UserScalarFieldEnum = {
   role: 'role',
   banned: 'banned',
   banReason: 'banReason',
-  banExpires: 'banExpires'
+  banExpires: 'banExpires',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -96,14 +96,14 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const SessionScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   expiresAt: 'expiresAt',
   token: 'token',
   ipAddress: 'ipAddress',
   userAgent: 'userAgent',
   impersonatedBy: 'impersonatedBy',
-  userId: 'userId'
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
@@ -111,8 +111,6 @@ export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeo
 
 export const AccountScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   accountId: 'accountId',
   providerId: 'providerId',
   accessToken: 'accessToken',
@@ -122,7 +120,9 @@ export const AccountScalarFieldEnum = {
   refreshTokenExpiresAt: 'refreshTokenExpiresAt',
   scope: 'scope',
   password: 'password',
-  userId: 'userId'
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
@@ -130,11 +130,11 @@ export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeo
 
 export const VerificationScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   identifier: 'identifier',
   value: 'value',
-  expiresAt: 'expiresAt'
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
@@ -142,10 +142,10 @@ export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[k
 
 export const BrandScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatadAt: 'updatadAt',
   name: 'name',
-  imageUrl: 'imageUrl'
+  imageUrl: 'imageUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof BrandScalarFieldEnum]
@@ -153,10 +153,10 @@ export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof Br
 
 export const SeriesScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatadAt: 'updatadAt',
   name: 'name',
-  brandId: 'brandId'
+  brandId: 'brandId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type SeriesScalarFieldEnum = (typeof SeriesScalarFieldEnum)[keyof typeof SeriesScalarFieldEnum]
@@ -164,12 +164,12 @@ export type SeriesScalarFieldEnum = (typeof SeriesScalarFieldEnum)[keyof typeof 
 
 export const ProductScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
-  updatadAt: 'updatadAt',
   name: 'name',
   imageUrl: 'imageUrl',
   seriesId: 'seriesId',
-  productColorId: 'productColorId'
+  productColorId: 'productColorId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -177,9 +177,9 @@ export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeo
 
 export const ProductColorScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   createdAt: 'createdAt',
-  updatadAt: 'updatadAt',
-  name: 'name'
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProductColorScalarFieldEnum = (typeof ProductColorScalarFieldEnum)[keyof typeof ProductColorScalarFieldEnum]

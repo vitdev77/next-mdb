@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { brands, productColors, products, series } from "./data-for-seeding";
+import { brands, series, products, productColors } from "./data-for-seeding";
 
 async function up() {
   // adding brands
@@ -17,7 +17,7 @@ async function up() {
     data: products,
   });
 
-  // adding product colors
+  // adding model colors
   await prisma.productColor.createMany({
     data: productColors,
   });

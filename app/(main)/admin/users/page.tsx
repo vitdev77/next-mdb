@@ -15,6 +15,7 @@ import { Check, PenIcon, Trash2, X } from "lucide-react";
 
 export default async function UsersPage() {
   const users = await prisma.user.findMany();
+
   return (
     <Container className="min-h-[calc(100vh-114px)]">
       <Sidebar />
@@ -25,7 +26,7 @@ export default async function UsersPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Color ID</TableHead>
+                <TableHead className="w-[100px]">User ID</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Verified</TableHead>
@@ -35,37 +36,48 @@ export default async function UsersPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {users.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell className="font-mono font-medium">
-                    {user.id.slice(0, 8)}
-                    <span className="text-muted-foreground text-xs">
-                      ...{user.id.slice(-3)}
-                    </span>
-                  </TableCell>
-                  <TableCell className="font-medium">{user.name}</TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>
-                    {user.emailVerified === true ? (
-                      <Check className="stroke-green-600" />
-                    ) : (
-                      <X className="stroke-destructive" />
-                    )}
-                  </TableCell>
-                  <TableCell>{user.role}</TableCell>
-                  <TableCell>{user.image}</TableCell>
-                  <TableCell>
-                    <div className="flex flex-row justify-end gap-2">
-                      <Button size={"sm"}>
-                        <PenIcon /> Edit
-                      </Button>
-                      <Button variant={"destructive"} size={"sm"}>
-                        <Trash2 /> Delete
-                      </Button>
-                    </div>
+              {users.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={7}
+                    className="text-muted-foreground text-center"
+                  >
+                    No users found
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                users.map((user) => (
+                  <TableRow key={user.id}>
+                    <TableCell className="font-mono font-medium">
+                      {user.id.slice(0, 8)}
+                      <span className="text-muted-foreground text-xs">
+                        ...{user.id.slice(-3)}
+                      </span>
+                    </TableCell>
+                    <TableCell className="font-medium">{user.name}</TableCell>
+                    <TableCell>{user.email}</TableCell>
+                    <TableCell>
+                      {user.emailVerified === true ? (
+                        <Check className="stroke-green-600" />
+                      ) : (
+                        <X className="stroke-destructive" />
+                      )}
+                    </TableCell>
+                    <TableCell>{user.role}</TableCell>
+                    <TableCell>{user.image}</TableCell>
+                    <TableCell>
+                      <div className="flex flex-row justify-end gap-2">
+                        <Button size={"sm"}>
+                          <PenIcon /> Edit
+                        </Button>
+                        <Button variant={"destructive"} size={"sm"}>
+                          <Trash2 /> Delete
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>

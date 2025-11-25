@@ -14,7 +14,7 @@ import prisma from "@/lib/prisma";
 import { PenIcon, Trash2 } from "lucide-react";
 
 export default async function ColorsPage() {
-  const colors = await prisma.productColor.findMany();
+  const productColors = await prisma.productColor.findMany();
 
   return (
     <Container className="min-h-[calc(100vh-114px)]">
@@ -32,22 +32,35 @@ export default async function ColorsPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {colors.map((color) => (
-                <TableRow key={color.id}>
-                  <TableCell>{color.id}</TableCell>
-                  <TableCell className="font-medium">{color.name}</TableCell>
-                  <TableCell>
-                    <div className="flex flex-row justify-end gap-2">
-                      <Button size={"sm"}>
-                        <PenIcon /> Edit
-                      </Button>
-                      <Button variant={"destructive"} size={"sm"}>
-                        <Trash2 /> Delete
-                      </Button>
-                    </div>
+              {productColors.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={3}
+                    className="text-muted-foreground text-center"
+                  >
+                    No product colors found
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                productColors.map((productColor) => (
+                  <TableRow key={productColor.id}>
+                    <TableCell>{productColor.id}</TableCell>
+                    <TableCell className="font-medium">
+                      {productColor.name}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-row justify-end gap-2">
+                        <Button size={"sm"}>
+                          <PenIcon /> Edit
+                        </Button>
+                        <Button variant={"destructive"} size={"sm"}>
+                          <Trash2 /> Delete
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>

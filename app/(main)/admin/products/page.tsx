@@ -36,28 +36,41 @@ export default async function ProductPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {products.map((product) => (
-                <TableRow key={product.id}>
-                  <TableCell>{product.id}</TableCell>
-                  <TableCell>Midea</TableCell>
-                  <TableCell className="font-medium">{product.name}</TableCell>
-                  <TableCell className="text-muted-foreground/50">
-                    {product.imageUrl}
-                  </TableCell>
-                  <TableCell>{product.productColorId}</TableCell>
-                  <TableCell>{product.seriesId}</TableCell>
-                  <TableCell>
-                    <div className="flex flex-row justify-end gap-2">
-                      <Button size={"sm"}>
-                        <PenIcon /> Edit
-                      </Button>
-                      <Button variant={"destructive"} size={"sm"}>
-                        <Trash2 /> Delete
-                      </Button>
-                    </div>
+              {products.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={7}
+                    className="text-muted-foreground text-center"
+                  >
+                    No products found
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                products.map((product) => (
+                  <TableRow key={product.id}>
+                    <TableCell>{product.id}</TableCell>
+                    <TableCell>Midea</TableCell>
+                    <TableCell className="font-medium">
+                      {product.name}
+                    </TableCell>
+                    <TableCell className="text-muted-foreground/50">
+                      {product.imageUrl}
+                    </TableCell>
+                    <TableCell>{product.productColorId}</TableCell>
+                    <TableCell>{product.seriesId}</TableCell>
+                    <TableCell>
+                      <div className="flex flex-row justify-end gap-2">
+                        <Button size={"sm"}>
+                          <PenIcon /> Edit
+                        </Button>
+                        <Button variant={"destructive"} size={"sm"}>
+                          <Trash2 /> Delete
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>

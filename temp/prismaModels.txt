@@ -87,53 +87,64 @@ model Verification {
 }
 
 model Brand {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  imageUrl  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id Int @id @default(autoincrement())
 
-  series Series[]
+  name     String
+  imageUrl String?
+
+  categories Category[]
+
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
 
   @@map("brands")
 }
 
-model Series {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  brandId   Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Category {
+  id Int @id @default(autoincrement())
 
-  brand Brand @relation(fields: [brandId], references: [id])
+  name String @unique
+
+  brand   Brand @relation(fields: [brandId], references: [id])
+  brandId Int
 
   products Product[]
 
-  @@map("series")
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
+
+  @@map("categories")
 }
 
 model Product {
-  id             Int      @id @default(autoincrement())
-  name           String   @unique
-  imageUrl       String?
-  seriesId       Int
-  productColorId Int
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id Int @id @default(autoincrement())
 
-  series Series @relation(fields: [seriesId], references: [id])
-  // productColor  ProductColor  @relation(fields: [productColorId], references: [id])
+  name     String
+  imageUrl String?
+
+  category       Category @relation(fields: [categoryId], references: [id])
+  categoryId     Int
+  // TODO: ????????
+  // productColorId Int
+  // productColor   ProductColor @relation(fields: [productColorId], references: [id])
+  productColorId Int
+
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
 
   @@map("products")
 }
 
 model ProductColor {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id Int @id @default(autoincrement())
 
+  name String
+
+  // TODO: ????????
   // products Product[]
+
+  createdAt DateTime @default(now())
+  updatadAt DateTime @updatedAt
 
   @@map("product_colors")
 }

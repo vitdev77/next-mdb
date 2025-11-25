@@ -40,32 +40,32 @@ export type ProductSumAggregateOutputType = {
 
 export type ProductMinAggregateOutputType = {
   id: number | null
-  createdAt: Date | null
-  updatadAt: Date | null
   name: string | null
   imageUrl: string | null
   seriesId: number | null
   productColorId: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProductMaxAggregateOutputType = {
   id: number | null
-  createdAt: Date | null
-  updatadAt: Date | null
   name: string | null
   imageUrl: string | null
   seriesId: number | null
   productColorId: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProductCountAggregateOutputType = {
   id: number
-  createdAt: number
-  updatadAt: number
   name: number
   imageUrl: number
   seriesId: number
   productColorId: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -84,32 +84,32 @@ export type ProductSumAggregateInputType = {
 
 export type ProductMinAggregateInputType = {
   id?: true
-  createdAt?: true
-  updatadAt?: true
   name?: true
   imageUrl?: true
   seriesId?: true
   productColorId?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProductMaxAggregateInputType = {
   id?: true
-  createdAt?: true
-  updatadAt?: true
   name?: true
   imageUrl?: true
   seriesId?: true
   productColorId?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProductCountAggregateInputType = {
   id?: true
-  createdAt?: true
-  updatadAt?: true
   name?: true
   imageUrl?: true
   seriesId?: true
   productColorId?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -201,12 +201,12 @@ export type ProductGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ProductGroupByOutputType = {
   id: number
-  createdAt: Date
-  updatadAt: Date
   name: string
   imageUrl: string | null
   seriesId: number
   productColorId: number
+  createdAt: Date
+  updatedAt: Date
   _count: ProductCountAggregateOutputType | null
   _avg: ProductAvgAggregateOutputType | null
   _sum: ProductSumAggregateOutputType | null
@@ -234,48 +234,48 @@ export type ProductWhereInput = {
   OR?: Prisma.ProductWhereInput[]
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   id?: Prisma.IntFilter<"Product"> | number
-  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
-  updatadAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   name?: Prisma.StringFilter<"Product"> | string
   imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
   seriesId?: Prisma.IntFilter<"Product"> | number
   productColorId?: Prisma.IntFilter<"Product"> | number
+  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   series?: Prisma.XOR<Prisma.SeriesScalarRelationFilter, Prisma.SeriesWhereInput>
 }
 
 export type ProductOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatadAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   seriesId?: Prisma.SortOrder
   productColorId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   series?: Prisma.SeriesOrderByWithRelationInput
 }
 
 export type ProductWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   OR?: Prisma.ProductWhereInput[]
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
-  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
-  updatadAt?: Prisma.DateTimeFilter<"Product"> | Date | string
-  name?: Prisma.StringFilter<"Product"> | string
   imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
   seriesId?: Prisma.IntFilter<"Product"> | number
   productColorId?: Prisma.IntFilter<"Product"> | number
+  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   series?: Prisma.XOR<Prisma.SeriesScalarRelationFilter, Prisma.SeriesWhereInput>
-}, "id">
+}, "id" | "name">
 
 export type ProductOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatadAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   seriesId?: Prisma.SortOrder
   productColorId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProductCountOrderByAggregateInput
   _avg?: Prisma.ProductAvgOrderByAggregateInput
   _max?: Prisma.ProductMaxOrderByAggregateInput
@@ -288,78 +288,78 @@ export type ProductScalarWhereWithAggregatesInput = {
   OR?: Prisma.ProductScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProductScalarWhereWithAggregatesInput | Prisma.ProductScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Product"> | number
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
-  updatadAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
   name?: Prisma.StringWithAggregatesFilter<"Product"> | string
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   seriesId?: Prisma.IntWithAggregatesFilter<"Product"> | number
   productColorId?: Prisma.IntWithAggregatesFilter<"Product"> | number
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
 }
 
 export type ProductCreateInput = {
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
   series: Prisma.SeriesCreateNestedOneWithoutProductsInput
 }
 
 export type ProductUncheckedCreateInput = {
   id?: number
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   seriesId: number
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProductUpdateInput = {
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   series?: Prisma.SeriesUpdateOneRequiredWithoutProductsNestedInput
 }
 
 export type ProductUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seriesId?: Prisma.IntFieldUpdateOperationsInput | number
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductCreateManyInput = {
   id?: number
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   seriesId: number
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProductUpdateManyMutationInput = {
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seriesId?: Prisma.IntFieldUpdateOperationsInput | number
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductListRelationFilter = {
@@ -374,12 +374,12 @@ export type ProductOrderByRelationAggregateInput = {
 
 export type ProductCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatadAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   seriesId?: Prisma.SortOrder
   productColorId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProductAvgOrderByAggregateInput = {
@@ -390,22 +390,22 @@ export type ProductAvgOrderByAggregateInput = {
 
 export type ProductMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatadAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   seriesId?: Prisma.SortOrder
   productColorId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProductMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatadAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   seriesId?: Prisma.SortOrder
   productColorId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProductSumOrderByAggregateInput = {
@@ -457,20 +457,20 @@ export type ProductUncheckedUpdateManyWithoutSeriesNestedInput = {
 }
 
 export type ProductCreateWithoutSeriesInput = {
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProductUncheckedCreateWithoutSeriesInput = {
   id?: number
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProductCreateOrConnectWithoutSeriesInput = {
@@ -504,95 +504,95 @@ export type ProductScalarWhereInput = {
   OR?: Prisma.ProductScalarWhereInput[]
   NOT?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
   id?: Prisma.IntFilter<"Product"> | number
-  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
-  updatadAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   name?: Prisma.StringFilter<"Product"> | string
   imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
   seriesId?: Prisma.IntFilter<"Product"> | number
   productColorId?: Prisma.IntFilter<"Product"> | number
+  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
 }
 
 export type ProductCreateManySeriesInput = {
   id?: number
-  createdAt?: Date | string
-  updatadAt?: Date | string
   name: string
   imageUrl?: string | null
   productColorId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProductUpdateWithoutSeriesInput = {
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductUncheckedUpdateWithoutSeriesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductUncheckedUpdateManyWithoutSeriesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatadAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   productColorId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
 
 export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  createdAt?: boolean
-  updatadAt?: boolean
   name?: boolean
   imageUrl?: boolean
   seriesId?: boolean
   productColorId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   series?: boolean | Prisma.SeriesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  createdAt?: boolean
-  updatadAt?: boolean
   name?: boolean
   imageUrl?: boolean
   seriesId?: boolean
   productColorId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   series?: boolean | Prisma.SeriesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  createdAt?: boolean
-  updatadAt?: boolean
   name?: boolean
   imageUrl?: boolean
   seriesId?: boolean
   productColorId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   series?: boolean | Prisma.SeriesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectScalar = {
   id?: boolean
-  createdAt?: boolean
-  updatadAt?: boolean
   name?: boolean
   imageUrl?: boolean
   seriesId?: boolean
   productColorId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "createdAt" | "updatadAt" | "name" | "imageUrl" | "seriesId" | "productColorId", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "imageUrl" | "seriesId" | "productColorId" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
 export type ProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   series?: boolean | Prisma.SeriesDefaultArgs<ExtArgs>
 }
@@ -610,12 +610,12 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    createdAt: Date
-    updatadAt: Date
     name: string
     imageUrl: string | null
     seriesId: number
     productColorId: number
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["product"]>
   composites: {}
 }
@@ -1041,12 +1041,12 @@ export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.
  */
 export interface ProductFieldRefs {
   readonly id: Prisma.FieldRef<"Product", 'Int'>
-  readonly createdAt: Prisma.FieldRef<"Product", 'DateTime'>
-  readonly updatadAt: Prisma.FieldRef<"Product", 'DateTime'>
   readonly name: Prisma.FieldRef<"Product", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Product", 'String'>
   readonly seriesId: Prisma.FieldRef<"Product", 'Int'>
   readonly productColorId: Prisma.FieldRef<"Product", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"Product", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Product", 'DateTime'>
 }
     
 
